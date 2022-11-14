@@ -1,13 +1,14 @@
+
 const Joi = require('joi')
 
 const tourismSchema = Joi.object({
-    name: Joi.string().min(3).max(30).required(),
+    name: Joi.string().min(3).max(30).required(), 
     description: Joi.string().min(3).max(250).required(),
     
     imgUrl: Joi.array().items(Joi.string().required()).required(),
 
     location: Joi.object({
-        //Cuando le envio un string lo toma como numeros, ver video de Marcos, ahi explica porque pasa
+       
         latitude: Joi.number().required(),
         longitude: Joi.number().required(),
 
@@ -16,3 +17,5 @@ const tourismSchema = Joi.object({
 })
 
 module.exports = { tourismSchema }
+//luego todo esto se exporta para luego ser usados en los controladores 
+//otra parte que es muy oarecido al esquema, es el modelo 
